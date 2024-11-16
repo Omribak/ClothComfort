@@ -1,0 +1,55 @@
+.RegisterFormWrapper {
+  background-color: #fff;
+  width: 100%;
+  max-width: 600px;
+  padding: 3rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+}
+
+.IndexIndicator {
+  position: absolute;
+  top: 10%;
+  left: 90%;
+}
+
+.RegFormButtonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.RegFormTitle {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.RegFormWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.5rem;
+  gap: 1rem;
+}
+
+.InputLabel {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.RegInputStyle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.RegLabelWrapper {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.RegInputRequired {
+  color: red;
+}

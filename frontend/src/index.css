@@ -1,0 +1,68 @@
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(240, 210, 198, 0.4);
+}
+
+p {
+  cursor: default;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  cursor: default;
+  margin: 0;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Global styles */
+
+.RedButton {
+  background-color: rgb(248, 53, 53);
+  padding: 0.5rem;
+  font-weight: 500;
+  border-radius: 5px;
+  color: white;
+}
+
+.AuthInput {
+  padding: 1rem;
+  width: 100%;
+  min-width: 400px;
+  margin-bottom: 0.5rem;
+}
+
+.IconBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.TextError {
+  color: red;
+  font-size: 12px;
+}

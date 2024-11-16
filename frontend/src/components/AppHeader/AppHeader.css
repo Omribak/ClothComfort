@@ -1,0 +1,17 @@
+.AppHeaderWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  width: 100%;
+  border-bottom: 1px solid #e9ecef;
+  position: fixed;
+  z-index: 100;
+}
+
+.AuthMenuWrapper {
+  display: flex;
+  gap: 1rem;
+  color: white;
+}

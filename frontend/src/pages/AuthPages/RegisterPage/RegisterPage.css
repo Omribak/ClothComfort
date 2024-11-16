@@ -1,0 +1,19 @@
+.RegisterPageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.RegisterSectionContainer {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.RegisterPageTitle {
+  text-align: center;
+}
