@@ -1,9 +1,9 @@
-import React from 'react';
-import './RegisterForm.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../../../redux/store';
-import { RegisterUser } from '../../../../redux/Auth/AuthSlice';
-import { Loader } from 'lucide-react';
+import React from "react";
+import "./RegisterForm.css";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../redux/store";
+import { RegisterUser } from "../../../../redux/Auth/AuthSlice";
+import { Loader } from "lucide-react";
 type RegisterFormProps = {
   steps: JSX.Element[];
   currentStepIndex: number;
@@ -27,7 +27,7 @@ const RegisterForm = ({
   back,
   handleSubmit,
   regFormData,
-  setRegFormData
+  setRegFormData,
 }: RegisterFormProps) => {
   const { isAuthLoading: isLoading } = useSelector(
     (state: RootState) => state.AuthReducer
@@ -37,7 +37,7 @@ const RegisterForm = ({
     if (currentStepIndex === steps.length - 1) {
       const formData = {
         ...regFormData,
-        username: `${regFormData.firstName} ${regFormData.lastName}`
+        username: `${regFormData.firstName} ${regFormData.lastName}`,
       };
       await dispatch(RegisterUser(formData));
     } else {
@@ -61,7 +61,7 @@ const RegisterForm = ({
             </button>
           )}
           <button className="RedButton" type="submit">
-            {isLoading ? 'Loading...' : isLastStep ? 'Finish' : 'Next'}
+            {isLoading ? "Loading..." : isLastStep ? "Finish" : "Next"}
           </button>
         </div>
       </form>

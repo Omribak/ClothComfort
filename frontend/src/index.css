@@ -3,8 +3,7 @@ body,
 #root {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: rgb(240, 210, 198, 0.4);
 }
 
@@ -52,7 +51,6 @@ button:disabled {
 .AuthInput {
   padding: 1rem;
   width: 100%;
-  min-width: 400px;
   margin-bottom: 0.5rem;
 }
 

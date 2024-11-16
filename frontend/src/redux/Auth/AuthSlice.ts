@@ -1,7 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { ApiUrl } from '../../utils/ApiUrl';
-import { Login } from '@mui/icons-material';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { ApiUrl } from "../../utils/ApiUrl";
+import { Login } from "@mui/icons-material";
 
 export interface UserData {}
 
@@ -16,55 +16,62 @@ const initialState: UserState = {
   isAuthenticated: false,
   isAuthLoading: false,
   isCheckAuth: false,
-  user: null
+  user: null,
 };
 
 export const RegisterUser = createAsyncThunk(
-  '/register',
+  "/register",
   async (formData: any, { rejectWithValue }) => {
     try {
       const response = await axios.post(
         `${ApiUrl}/api/auth/register`,
         formData,
         {
-          withCredentials: true
+          withCredentials: true,
         }
       );
       return response.data;
     } catch (error: any) {
-      const errorMessage = error.response?.data?.message || 'An error occurred';
+      const errorMessage = error.response?.data?.message || "An error occurred";
       return rejectWithValue(errorMessage);
     }
   }
 );
 
 export const LoginUser = createAsyncThunk(
-  '/login',
+  "/login",
   async (formData: any, { rejectWithValue }) => {
     try {
       const response = await axios.post(`${ApiUrl}/api/auth/login`, formData, {
-        withCredentials: true
+        withCredentials: true,
       });
       return response.data;
     } catch (error: any) {
-      const errorMessage = error.response?.data?.message || 'An error occurred';
+      const errorMessage = error.response?.data?.message || "An error occurred";
       return rejectWithValue(errorMessage);
     }
   }
 );
 
-export const CheckAuth = createAsyncThunk('/checkauth', async () => {
+export const CheckAuth = createAsyncThunk("/checkauth", async () => {
   const response = await axios.get(`${ApiUrl}/api/auth/check-auth`, {
-    withCredentials: true
+    withCredentials: true,
   });
   return response.data;
 });
 
+export const LogoutUser = createAsyncThunk("/logout", async () => {
+  console.log("logout from user auth");
+  await axios.post(`${ApiUrl}/api/auth/logout`, {
+    withCredentials: true,
+  });
+});
+
 const AuthSlice = createSlice({
-  name: 'Auth',
+  name: "Auth",
   initialState,
   reducers: {
-    setUser: (state, action) => {}
+    setUser: (state, action) => {},
   },
   extraReducers: (builder) => {
     //Register User Cases
@@ -104,7 +111,15 @@ const AuthSlice = createSlice({
       state.isCheckAuth = false;
       state.isAuthenticated = false;
     });
-  }
+
+    //Logout User Cases
+
+    builder.addCase(LogoutUser.pending, (state) => {});
+
+    builder.addCase(LogoutUser.fulfilled, (state) => {
+      state.isAuthenticated = false;
+    });
+  },
 });
 
 export default AuthSlice.reducer;
